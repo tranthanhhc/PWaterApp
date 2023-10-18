@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backround_main"
+    android:background="@drawable/backround_water_layout"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -13,6 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="92dp"
         android:gravity="center"
+        android:shadowColor="#350E0E"
+        android:shadowDx="7"
+        android:shadowDy="7"
+        android:shadowRadius="3"
         android:text="NƯỚC TINH KHIẾT - PW"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
