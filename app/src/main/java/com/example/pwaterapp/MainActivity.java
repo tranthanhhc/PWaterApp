@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         btnCus = (Button) findViewById(R.id.buttonCustomers);
         btnWater = (Button) findViewById(R.id.buttonWater);
         btnExit = (Button) findViewById(R.id.buttonExit);
+
         //event btn click
         btnCus.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -33,14 +33,14 @@ public class Database extends SQLiteOpenHelper {
     private static String BRAND = "brandwater";
 
     // Create list Cus
-    private String SQLQuery = "CREATE TABLE " + TABLE_CUSTOMERS +" ( " + ID_CUSTOMERS +"integer primary key AUTOINCREMENT, "
-            + NAME_CUSTOMERS + "TEXT, " + ADDRESS_CUSTOMERS + "TEXT, " + WATER_TYPE + "INTEGER, " + WATER_BRAND + "TEXT, "
-            + TIME + "TEXT, " + IMAGE + "BLOB, "
-            + ID_WATER + "INTEGER, FOREIGN KEY ( " + ID_WATER + " ) REFERENCES " + TABLE_WATER + " ( " + ID_WATER + "))";
+    private String SQLQuery = "CREATE TABLE " + TABLE_CUSTOMERS + " (" + ID_CUSTOMERS + " INTEGER primary key AUTOINCREMENT, "
+            + NAME_CUSTOMERS + " TEXT, " + ADDRESS_CUSTOMERS + " TEXT, " + WATER_TYPE + " INTEGER, " + WATER_BRAND + " TEXT, "
+            + TIME + " TEXT, " + IMAGE + " BLOB, "
+            + ID_WATER + " INTEGER, FOREIGN KEY (" + ID_WATER + ") REFERENCES " + TABLE_WATER + " (" + ID_WATER + "))";
 
     // Create list Water
-    private String SQLQuery1 = "CREATE TABLE " + TABLE_WATER + " ( " + ID_WATER + "integer primary key AUTOINCREMENT, "
-            + TYPE + " INTEGER, " + BRAND + " TEXT) ";
+    private String SQLQuery1 = "CREATE TABLE " + TABLE_WATER + " (" + ID_WATER + " INTEGER primary key AUTOINCREMENT, "
+            + TYPE + " INTEGER, " + BRAND + " TEXT)";
 
 
 
@@ -89,7 +89,7 @@ public class Database extends SQLiteOpenHelper {
         db.update(TABLE_CUSTOMERS , values, ID_CUSTOMERS + " = "+ id, null);
         return true;
     }
-    //get data cuss
+    //get data customer
     public Cursor getDataCuss() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CUSTOMERS, null);
@@ -101,4 +101,30 @@ public class Database extends SQLiteOpenHelper {
         int res = db.delete(TABLE_CUSTOMERS,ID_CUSTOMERS + " = "+i,null);
         return res;
     }
+
+    //get data water
+    public Cursor getDataWater() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_WATER, null);
+        return cursor;
+    }
+    // delete water
+    public int DeleteWater(int i ) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int res = db.delete(TABLE_CUSTOMERS,ID_WATER + " = "+i,null);
+        return res;
+    }
+
+    //update Water
+    public boolean UpdateWater(Customer cus , int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(WATER_BRAND,cus.getWater_brand());
+        values.put(WATER_TYPE,cus.getWater_type());
+
+        db.update(TABLE_WATER , values, ID_WATER + " = "+ id, null);
+        return true;
+    }
+
 }
