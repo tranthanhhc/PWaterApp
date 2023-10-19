@@ -24,6 +24,33 @@
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="553dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="78dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarWater"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Danh sách nước"
+            app:titleTextColor="#F8F8FF" />
+        <ListView
+            android:id="@+id/listviewWater"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/buttonWaterBack"
         android:layout_width="122dp"
