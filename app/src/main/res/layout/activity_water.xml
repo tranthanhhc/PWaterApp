@@ -44,6 +44,7 @@
             app:title="Danh sách nước"
             app:titleTextColor="#F8F8FF" />
         <ListView
+
             android:id="@+id/listviewWater"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

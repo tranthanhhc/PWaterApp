@@ -40,6 +40,7 @@ public class adapterwater extends BaseAdapter {
         return position;
     }
 
+    //list water
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -54,7 +55,7 @@ public class adapterwater extends BaseAdapter {
         Water water = ArrayWaterList.get(position);
 
         TextViewBrand.setText(water.getBrand());
-        TextViewType.setText(water.getType());
+        TextViewType.setText(water.getType()+"");
 
         int id = water.getId();
 
@@ -71,6 +72,6 @@ public class adapterwater extends BaseAdapter {
             }
         });
 
-        return null;
+        return convertView;
     }
 }

@@ -10,6 +10,7 @@ import android.os.Build;
 import androidx.annotation.Nullable;
 
 import com.example.pwaterapp.model.Customer;
+import com.example.pwaterapp.model.Water;
 
 public class Database extends SQLiteOpenHelper {
 
@@ -42,7 +43,10 @@ public class Database extends SQLiteOpenHelper {
     private String SQLQuery1 = "CREATE TABLE " + TABLE_WATER + " (" + ID_WATER + " INTEGER primary key AUTOINCREMENT, "
             + TYPE + " INTEGER, " + BRAND + " TEXT)";
 
-
+    // Join type and brand to cus
+    //private String SQLQuery2 = "SELECT cus.*, w." + TYPE + ", w." + BRAND + " FROM " + TABLE_CUSTOMERS + " cus" +
+            //" INNER JOIN " + TABLE_WATER + " w ON cus." + ID_WATER + " = w." + ID_WATER +
+            //" WHERE cus." + ID_CUSTOMERS + " = ?";
 
     public Database(@Nullable Context context) {
         super(context, DATABASE_NAME, null, VERSION);
@@ -107,6 +111,18 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_WATER, null);
         return cursor;
+    }
+    //Function Add new Customer
+    public void AddWater(Water wat) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(TYPE,wat.getType());
+        values.put(BRAND,wat.getBrand());
+
+
+        db.insert(TABLE_WATER,null,values);
+        db.close();
     }
     // delete water
     public int DeleteWater(int i ) {
