@@ -13,7 +13,7 @@ import com.example.pwaterapp.database.Database;
 import com.example.pwaterapp.model.Water;
 
 public class AddWater extends AppCompatActivity {
-    Button buttonAddWater;
+    Button buttonAddWater,buttonBackWater;
     EditText editTextBrandW,editTextTypeW;
     com.example.pwaterapp.database.Database database;
 
@@ -24,6 +24,7 @@ public class AddWater extends AppCompatActivity {
         setContentView(R.layout.activity_add_water);
 
         buttonAddWater = (Button) findViewById(R.id.ButtonAddWater);
+        buttonBackWater = (Button) findViewById(R.id.ButtonBackWater);
         editTextBrandW = (EditText) findViewById(R.id.EditTextNameBrand);
         editTextTypeW = (EditText) findViewById(R.id.EditTextTypeWater);
 
@@ -52,6 +53,12 @@ public class AddWater extends AppCompatActivity {
 
                     Toast.makeText(AddWater.this,"Add Success",Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        buttonBackWater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

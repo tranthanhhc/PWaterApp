@@ -7,13 +7,16 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.pwaterapp.adapter.adaptercuss;
 import com.example.pwaterapp.adapter.adapterwater;
@@ -24,7 +27,6 @@ import com.example.pwaterapp.model.Water;
 import java.util.ArrayList;
 
 public class CustomersActivity extends AppCompatActivity {
-    Button btnCusBack;
     Toolbar toolbarCus;
     ListView listviewCus;
 
@@ -38,17 +40,10 @@ public class CustomersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customers);
 
-        btnCusBack = (Button) findViewById(R.id.buttonCusBack);
         toolbarCus = (Toolbar) findViewById(R.id.toolbarCus);
         listviewCus = (ListView) findViewById(R.id.listviewCus);
 
         //event back to MainAc
-        btnCusBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         setSupportActionBar(toolbarCus);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -67,10 +62,7 @@ public class CustomersActivity extends AppCompatActivity {
             String time = cursor.getString(5);
             byte[] image = cursor.getBlob(6); // link image
 
-
-
             ArrayListCuss.add(new Customer(id,name,Address,type,brand,time,image));
-
         }
 
         adaptercuss = new adaptercuss(CustomersActivity.this, ArrayListCuss);
@@ -83,13 +75,28 @@ public class CustomersActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Dialog dialog = new Dialog(CustomersActivity.this);
                     dialog.setContentView(R.layout.dialogdetail);
-                    dialog.show();
-                    dialog.setCanceledOnTouchOutside(true);
+                TextView textViewName = dialog.findViewById(R.id.TextViewNameCuss);
+                TextView textViewAddress = dialog.findViewById(R.id.TextViewAddressCuss);
+                TextView textViewType = dialog.findViewById(R.id.TextViewTypeCuss);
+                TextView textViewBrand = dialog.findViewById(R.id.TextViewBrandCuss);
+                TextView textViewDate = dialog.findViewById(R.id.TextViewDateCuss);
+                ImageView imageView = dialog.findViewById(R.id.imageViewCus);
+
+                Customer selectedCustomer = ArrayListCuss.get(position);
+
+                textViewName.setText(selectedCustomer.getName());
+                textViewAddress.setText(selectedCustomer.getAddress());
+                textViewType.setText(String.valueOf(selectedCustomer.getWater_type()));
+                textViewBrand.setText(selectedCustomer.getWater_brand());
+                //textViewDate.setText(selectedCustomer.getTime());
+                //imageView.setImageBitmap(BitmapFactory.decodeByteArray(selectedCustomer.getImage(), 0, selectedCustomer.getImage().length));
+
+                dialog.show();
+                dialog.setCanceledOnTouchOutside(true);
             }
         });
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -102,6 +109,10 @@ public class CustomersActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.menuaddC) {
             Intent intent5 = new Intent(CustomersActivity.this, AddCuss.class);
             startActivity(intent5);
+        }
+        else {
+            Intent intentCancel = new Intent(CustomersActivity.this, MainActivity.class);
+            startActivity(intentCancel);
         }
         return super.onOptionsItemSelected(item);
     }

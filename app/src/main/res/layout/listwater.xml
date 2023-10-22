@@ -44,20 +44,20 @@
     </LinearLayout>
     <ImageButton
 
-        android:background="#000000"
+        android:background="#FFFFFF"
         android:src="@drawable/baseline_update_24"
         android:id="@+id/updateWater"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"></ImageButton>
+        android:layout_width="40dp"
+        android:layout_height="40dp"></ImageButton>
     <ImageButton
 
-        android:background="#000000"
+        android:background="#FFFFFF"
         android:src="@drawable/baseline_delete_24"
         android:id="@+id/deleteWater"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"></ImageButton>
+        android:layout_width="40dp"
+        android:layout_height="40dp"></ImageButton>
 </LinearLayout>

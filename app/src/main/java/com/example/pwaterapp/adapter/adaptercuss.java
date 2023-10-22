@@ -76,6 +76,6 @@ public class adaptercuss extends BaseAdapter {
         });
 
 
-        return null;
+        return convertView;
     }
 }

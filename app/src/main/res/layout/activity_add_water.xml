@@ -35,14 +35,31 @@
         android:hint="Type Water"
         android:layout_width="300dp"
         android:layout_height="60dp"></EditText>
-    <Button
-        
-        android:text="Add"
-        android:id="@+id/ButtonAddWater"
+    <LinearLayout
+        android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_gravity="right"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></Button>
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Back"
+            android:id="@+id/ButtonBackWater"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+
+        <Button
+            android:text="Add"
+            android:id="@+id/ButtonAddWater"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+
+    </LinearLayout>
 
 </LinearLayout>

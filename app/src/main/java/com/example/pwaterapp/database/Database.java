@@ -112,7 +112,7 @@ public class Database extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_WATER, null);
         return cursor;
     }
-    //Function Add new Customer
+    //Function Add new Water
     public void AddWater(Water wat) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

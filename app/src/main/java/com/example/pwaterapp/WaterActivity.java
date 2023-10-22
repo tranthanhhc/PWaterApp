@@ -21,7 +21,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class WaterActivity extends AppCompatActivity {
-    Button btnWaterBack;
+
     Toolbar toolbarWater;
     ListView listViewWater;
 
@@ -33,17 +33,10 @@ public class WaterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water);
-        btnWaterBack = (Button) findViewById(R.id.buttonWaterBack);
+
         toolbarWater = (Toolbar) findViewById(R.id.toolbarWater);
         listViewWater = (ListView) findViewById(R.id.listviewWater);
 
-        //event back to mainAc
-        btnWaterBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         setSupportActionBar(toolbarWater);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -81,6 +74,10 @@ public class WaterActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.menuaddW) {
             Intent intent4 = new Intent(WaterActivity.this, AddWater.class);
             startActivity(intent4);
+        }
+        else {
+            Intent intentCancel = new Intent(WaterActivity.this, MainActivity.class);
+            startActivity(intentCancel);
         }
         return super.onOptionsItemSelected(item);
     }

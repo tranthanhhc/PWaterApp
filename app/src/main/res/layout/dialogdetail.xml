@@ -80,7 +80,7 @@
             android:id="@+id/TextViewTypeCuss"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
-            android:text=" A "
+            android:text=" 16 "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
     </LinearLayout>
@@ -126,7 +126,7 @@
             android:id="@+id/TextViewDateCuss"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
-            android:text=" A "
+            android:text=" 19/09 "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
     </LinearLayout>
@@ -155,7 +155,7 @@
             android:layout_marginStart="120dp"
             android:layout_marginEnd="120dp"
             android:layout_marginBottom="349dp"
-            android:src="@drawable/main_logo2" ></ImageView>
+             ></ImageView>
     </LinearLayout>
 
 
