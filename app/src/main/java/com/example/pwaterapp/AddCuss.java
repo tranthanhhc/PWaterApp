@@ -26,9 +26,7 @@ import java.io.IOException;
 
 public class AddCuss extends AppCompatActivity {
     Button buttonAddCuss,buttonBackCuss;
-    EditText editTextName, editTextAddress,editTextBrand,editTextType,editTextTime;
-    ImageButton imageViewButtonPhoto;
-    int REQUEST_CODE_FOLDER = 456;
+    EditText editTextName, editTextAddress,editTextBrand,editTextType;
     com.example.pwaterapp.database.Database database;
 
     @Override
@@ -43,9 +41,7 @@ public class AddCuss extends AppCompatActivity {
         editTextAddress = (EditText) findViewById(R.id.EditTextAddress);
         editTextBrand = (EditText) findViewById(R.id.EditTextBrandCuss);
         editTextType = (EditText) findViewById(R.id.EditTextTypeCuss);
-        editTextTime = (EditText) findViewById(R.id.EditTextTimeCuss);
 
-        imageViewButtonPhoto = (ImageButton) findViewById(R.id.ImageButtonAddPhoto);
 
 
         database = new Database(this);
@@ -57,7 +53,7 @@ public class AddCuss extends AppCompatActivity {
                 String address = editTextAddress.getText().toString().trim();
                 String type = editTextType.getText().toString().trim();
                 String brand = editTextBrand.getText().toString().trim();
-                //String time = editTextTime.getText().toString().trim();
+
 
                 if (name.equals("") || address.equals("") || brand.equals("") || type.equals("")) {
                     Toast.makeText(AddCuss.this, "Not enough information! ", Toast.LENGTH_SHORT).show();
