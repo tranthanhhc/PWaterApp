@@ -68,7 +68,7 @@ public class adapterwater extends BaseAdapter {
         imageDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                context.deleteW(id);
             }
         });
 

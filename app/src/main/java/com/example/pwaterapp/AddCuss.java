@@ -25,8 +25,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class AddCuss extends AppCompatActivity {
-    Button buttonAddCuss,buttonBackCuss;
-    EditText editTextName, editTextAddress,editTextBrand,editTextType;
+    Button btnAddCuss,btnBackCuss;
+    EditText edtName, edtAddress,edtBrand,edtType;
     com.example.pwaterapp.database.Database database;
 
     @Override
@@ -34,25 +34,25 @@ public class AddCuss extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_cuss);
 
-        buttonAddCuss = (Button) findViewById(R.id.ButtonAddCuss);
-        buttonBackCuss = (Button) findViewById(R.id.ButtonBackCuss);
+        btnAddCuss = (Button) findViewById(R.id.ButtonAddCuss);
+        btnBackCuss = (Button) findViewById(R.id.ButtonBackCuss);
 
-        editTextName = (EditText) findViewById(R.id.EditTextNameCuss);
-        editTextAddress = (EditText) findViewById(R.id.EditTextAddress);
-        editTextBrand = (EditText) findViewById(R.id.EditTextBrandCuss);
-        editTextType = (EditText) findViewById(R.id.EditTextTypeCuss);
+        edtName = (EditText) findViewById(R.id.EditTextNameCuss);
+        edtAddress = (EditText) findViewById(R.id.EditTextAddress);
+        edtBrand = (EditText) findViewById(R.id.EditTextBrandCuss);
+        edtType = (EditText) findViewById(R.id.EditTextTypeCuss);
 
 
 
         database = new Database(this);
 
-        buttonAddCuss.setOnClickListener(new View.OnClickListener() {
+        btnAddCuss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = editTextName.getText().toString().trim();
-                String address = editTextAddress.getText().toString().trim();
-                String type = editTextType.getText().toString().trim();
-                String brand = editTextBrand.getText().toString().trim();
+                String name = edtName.getText().toString().trim();
+                String address = edtAddress.getText().toString().trim();
+                String type = edtType.getText().toString().trim();
+                String brand = edtBrand.getText().toString().trim();
 
 
                 if (name.equals("") || address.equals("") || brand.equals("") || type.equals("")) {
@@ -73,7 +73,7 @@ public class AddCuss extends AppCompatActivity {
                 }
             }
         });
-        buttonBackCuss.setOnClickListener(new View.OnClickListener() {
+        btnBackCuss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -82,10 +82,10 @@ public class AddCuss extends AppCompatActivity {
     }
 
     private Customer CreateCus() {
-        String name = editTextName.getText().toString().trim();
-        String address = editTextAddress.getText().toString().trim();
-        int type = Integer.parseInt(editTextType.getText().toString().trim());
-        String brand = editTextBrand.getText().toString().trim();
+        String name = edtName.getText().toString().trim();
+        String address = edtAddress.getText().toString().trim();
+        int type = Integer.parseInt(edtType.getText().toString().trim());
+        String brand = edtBrand.getText().toString().trim();
 
 
 

@@ -60,13 +60,14 @@ public class adaptercuss extends BaseAdapter {
         imageDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                context.deleteC(id);
 
             }
         });
         imageUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                context.updateC(id);
             }
         });imageCart.setOnClickListener(new View.OnClickListener() {
             @Override

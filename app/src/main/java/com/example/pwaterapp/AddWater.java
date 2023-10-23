@@ -13,8 +13,8 @@ import com.example.pwaterapp.database.Database;
 import com.example.pwaterapp.model.Water;
 
 public class AddWater extends AppCompatActivity {
-    Button buttonAddWater,buttonBackWater;
-    EditText editTextBrandW,editTextTypeW;
+    Button btnAddWater,btnBackWater;
+    EditText edtBrandW,edtTypeW;
     com.example.pwaterapp.database.Database database;
 
 
@@ -23,19 +23,19 @@ public class AddWater extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_water);
 
-        buttonAddWater = (Button) findViewById(R.id.ButtonAddWater);
-        buttonBackWater = (Button) findViewById(R.id.ButtonBackWater);
-        editTextBrandW = (EditText) findViewById(R.id.EditTextNameBrand);
-        editTextTypeW = (EditText) findViewById(R.id.EditTextTypeWater);
+        btnAddWater = (Button) findViewById(R.id.ButtonAddWater);
+        btnBackWater = (Button) findViewById(R.id.ButtonBackWater);
+        edtBrandW = (EditText) findViewById(R.id.EditTextNameBrand);
+        edtTypeW = (EditText) findViewById(R.id.EditTextTypeWater);
 
         database = new Database(this);
 
 
-        buttonAddWater.setOnClickListener(new View.OnClickListener() {
+        btnAddWater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String type = editTextTypeW.getText().toString().trim();
-                String brand = editTextBrandW.getText().toString().trim();
+                String type = edtTypeW.getText().toString().trim();
+                String brand = edtBrandW.getText().toString().trim();
                 //not enough data
                 if (type.equals("") || brand.equals("")) {
                     Toast.makeText(AddWater.this, "Not enough information! ", Toast.LENGTH_SHORT).show();
@@ -55,7 +55,7 @@ public class AddWater extends AppCompatActivity {
                 }
             }
         });
-        buttonBackWater.setOnClickListener(new View.OnClickListener() {
+        btnBackWater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -67,8 +67,8 @@ public class AddWater extends AppCompatActivity {
     //Create new water
     private Water CreateWater() {
 
-        int type = Integer.parseInt(editTextTypeW.getText().toString().trim());
-        String brand = editTextBrandW.getText().toString().trim();
+        int type = Integer.parseInt(edtTypeW.getText().toString().trim());
+        String brand = edtBrandW.getText().toString().trim();
 
         Water water = new Water(type,brand);
         return water;

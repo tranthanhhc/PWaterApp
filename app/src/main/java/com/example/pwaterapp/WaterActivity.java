@@ -3,6 +3,7 @@ package com.example.pwaterapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -80,5 +81,34 @@ public class WaterActivity extends AppCompatActivity {
             startActivity(intentCancel);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void deleteW(final int position) {
+        Dialog dialogW = new Dialog(this);
+        dialogW.setContentView(R.layout.dialogdeletewater);
+        dialogW.setCanceledOnTouchOutside(false);
+
+
+        Button btnYes = (Button) dialogW.findViewById(R.id.buttonYesDeleteWater);
+        Button btnNo = (Button) dialogW.findViewById(R.id.buttonNoDeleteWater);
+
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // delete -> id
+                database.DeleteWater(position);
+                Intent intentW = new Intent(WaterActivity.this, WaterActivity.class);
+                startActivity(intentW);
+            }
+        });
+
+        btnNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialogW.cancel();
+            }
+        });
+        dialogW.show();
     }
 }

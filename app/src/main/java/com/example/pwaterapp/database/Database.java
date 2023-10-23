@@ -127,7 +127,7 @@ public class Database extends SQLiteOpenHelper {
     // delete water
     public int DeleteWater(int i ) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int res = db.delete(TABLE_CUSTOMERS,ID_WATER + " = "+i,null);
+        int res = db.delete(TABLE_WATER,ID_WATER + " = "+i,null);
         return res;
     }
 
