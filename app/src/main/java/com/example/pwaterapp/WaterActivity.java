@@ -18,7 +18,6 @@ import com.example.pwaterapp.adapter.adapterwater;
 import com.example.pwaterapp.database.Database;
 import com.example.pwaterapp.model.Water;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class WaterActivity extends AppCompatActivity {
@@ -111,4 +110,26 @@ public class WaterActivity extends AppCompatActivity {
         });
         dialogW.show();
     }
+    public void updateW(final int position) {
+        Cursor cursor = database.getDataWater();
+
+        while (cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            if (id == position){
+                Intent intentUW = new Intent(WaterActivity.this, UpdateWaterN.class);
+                //
+
+                int type = cursor.getInt(1);
+                String brand = cursor.getString(2);
+
+
+                //send database to updatecuss
+                intentUW.putExtra("idwater",id);
+                intentUW.putExtra("typewater",type);
+                intentUW.putExtra("brandwater",brand);
+                startActivity(intentUW);
+            }
+        }
+    }
+
 }

@@ -62,7 +62,7 @@ public class adapterwater extends BaseAdapter {
         imageUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                context.updateW(id);
             }
         });
         imageDelete.setOnClickListener(new View.OnClickListener() {

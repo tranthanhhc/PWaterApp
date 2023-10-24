@@ -132,12 +132,12 @@ public class Database extends SQLiteOpenHelper {
     }
 
     //update Water
-    public boolean UpdateWater(Customer cus , int id) {
+    public boolean UpdateWater(Water water , int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(WATER_BRAND,cus.getWater_brand());
-        values.put(WATER_TYPE,cus.getWater_type());
+        values.put(TYPE,water.getType());
+        values.put(BRAND,water.getBrand());
 
         db.update(TABLE_WATER , values, ID_WATER + " = "+ id, null);
         return true;

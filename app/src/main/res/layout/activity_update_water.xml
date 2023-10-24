@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddCuss">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:textColor="#8DEEEE"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="35sp"
+        android:shadowColor="#cccccc"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="3"
+        android:text="Update Water"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:id="@+id/EditTextBrandUpdateWater"
+        android:hint="Name Brand"
+        android:layout_width="300dp"
+        android:layout_height="60dp"></EditText>
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:id="@+id/EditTextTypeUpdateWater"
+        android:hint="Type Water"
+        android:layout_width="300dp"
+        android:layout_height="60dp"></EditText>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Back"
+            android:id="@+id/ButtonBackUpdateWater"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+
+        <Button
+            android:text="Update"
+            android:id="@+id/ButtonUpdateWater"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+
+    </LinearLayout>
+
+</LinearLayout>
