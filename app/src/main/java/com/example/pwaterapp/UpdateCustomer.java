@@ -31,6 +31,7 @@ public class UpdateCustomer extends AppCompatActivity {
         edtAddress = (EditText) findViewById(R.id.EditTextAddressUpdate);
         edtBrandC = (EditText) findViewById(R.id.EditTextBrandUpdateCuss);
         edtTypeC = (EditText) findViewById(R.id.EditTextTypeUpdateCuss);
+        edtTime = (EditText) findViewById(R.id.EditTextTimeUpdateCuss);
         btnUpdate = (Button) findViewById(R.id.ButtonUpdateCuss);
         btnBackC = (Button) findViewById(R.id.ButtonBackUpdateCuss);
 
@@ -41,12 +42,13 @@ public class UpdateCustomer extends AppCompatActivity {
         String address = intentU.getStringExtra("address");
         int type = intentU.getIntExtra("type",0);
         String brand = intentU.getStringExtra("brand");
+        String time = intentU.getStringExtra("time");
 
         edtName.setText(name);
         edtAddress.setText(address);
         edtTypeC.setText(type+"");
         edtBrandC.setText(brand);
-
+        edtTime.setText(time);
         database = new Database(this);
 
 
@@ -57,9 +59,10 @@ public class UpdateCustomer extends AppCompatActivity {
                 String address = edtAddress.getText().toString().trim();
                 String type = edtTypeC.getText().toString().trim();
                 String brand = edtBrandC.getText().toString().trim();
+                String time = edtTime.getText().toString().trim();
 
 
-                if (name.equals("") || address.equals("") || brand.equals("") || type.equals("")) {
+                if (name.equals("") || address.equals("") || brand.equals("") || type.equals("")|| time.equals("") ) {
                     Toast.makeText(UpdateCustomer.this, "Not enough information! ", Toast.LENGTH_SHORT).show();
 
                 }
@@ -91,8 +94,9 @@ public class UpdateCustomer extends AppCompatActivity {
         String address = edtAddress.getText().toString().trim();
         int type = Integer.parseInt(edtTypeC.getText().toString().trim());
         String brand = edtBrandC.getText().toString().trim();
+        String time = edtTime.getText().toString().trim();
 
-        Customer cus = new Customer(name,address,type,brand,null,null);
+        Customer cus = new Customer(name,address,type,brand,time,null);
         return cus;
     }
 

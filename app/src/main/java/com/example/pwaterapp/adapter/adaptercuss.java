@@ -72,7 +72,7 @@ public class adaptercuss extends BaseAdapter {
         });imageCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                context.historyC(id);
             }
         });
 

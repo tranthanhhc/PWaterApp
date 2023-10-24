@@ -86,7 +86,7 @@ public class CustomersActivity extends AppCompatActivity {
                 textViewAddress.setText(selectedCustomer.getAddress());
                 textViewType.setText(String.valueOf(selectedCustomer.getWater_type()));
                 textViewBrand.setText(selectedCustomer.getWater_brand());
-                //textViewDate.setText(selectedCustomer.getTime());
+                textViewDate.setText(selectedCustomer.getTime());
                 //imageView.setImageBitmap(BitmapFactory.decodeByteArray(selectedCustomer.getImage(), 0, selectedCustomer.getImage().length));
 
                 dialog.show();
@@ -159,7 +159,7 @@ public class CustomersActivity extends AppCompatActivity {
                 String Address = cursor.getString(2);
                 int type = cursor.getInt(3);
                 String brand = cursor.getString(4);
-                //String time = cursor.getString(5);
+                String time = cursor.getString(5);
                 //byte[] image = cursor.getBlob(6); // link image
 
                 //send database to updatecuss
@@ -168,10 +168,35 @@ public class CustomersActivity extends AppCompatActivity {
                 intentU.putExtra("address",Address);
                 intentU.putExtra("type",type);
                 intentU.putExtra("brand",brand);
-                //intentU.putExtra("time",time);
+                intentU.putExtra("time",time);
                 //intentU.putExtra("image",image);
 
                 startActivity(intentU);
+            }
+        }
+    }
+
+    public void historyC(final int position) {
+        Cursor cursor = database.getDataCuss();
+        while (cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            if (id == position){
+                Intent intentH = new Intent(CustomersActivity.this, HistoryCuss.class);
+                //
+
+                int type = cursor.getInt(3);
+                String brand = cursor.getString(4);
+                String time = cursor.getString(5);
+                //byte[] image = cursor.getBlob(6); // link image
+
+                //send database to historycuss
+                intentH.putExtra("idcustomer",id);
+                intentH.putExtra("type",type);
+                intentH.putExtra("brand",brand);
+                intentH.putExtra("time",time);
+                //intentU.putExtra("image",image);
+
+                startActivity(intentH);
             }
         }
     }
