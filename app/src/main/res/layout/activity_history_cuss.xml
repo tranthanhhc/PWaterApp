@@ -31,6 +31,7 @@
            android:layout_height="wrap_content">
 
            <LinearLayout
+               android:padding="10dp"
                android:gravity="center"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
@@ -39,11 +40,13 @@
 
 
               <LinearLayout
+
                   android:orientation="vertical"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content">
 
                   <TextView
+                      android:layout_gravity="center"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:shadowColor="#cccccc"
@@ -77,6 +80,7 @@
                    android:layout_height="wrap_content">
 
                    <TextView
+                       android:layout_gravity="center"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:shadowColor="#cccccc"
@@ -109,6 +113,7 @@
                    android:layout_height="wrap_content">
 
                    <TextView
+                       android:layout_gravity="center"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:shadowColor="#cccccc"
@@ -141,6 +146,7 @@
                    android:layout_height="wrap_content">
 
                    <TextView
+                       android:layout_gravity="center"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:shadowColor="#cccccc"
@@ -151,19 +157,12 @@
                        android:textColor="#CCCCCC"
                        android:textSize="18sp"
                        android:textStyle="bold"></TextView>
-                   <TextView
-                       android:id="@+id/TextViewCartImage"
+                   <ImageView
                        android:layout_gravity="center"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:shadowColor="#cccccc"
-                       android:shadowDx="5"
-                       android:shadowDy="5"
-                       android:shadowRadius="3"
-                       android:text="link "
-                       android:textColor="#CCCCCC"
-                       android:textSize="18sp"
-                       android:textStyle="bold"></TextView>
+                       android:layout_marginTop="5dp"
+                       android:id="@+id/ImageViewHistoryPhoto"
+                       android:layout_width="100dp"
+                       android:layout_height="100dp"></ImageView>
                </LinearLayout>
 
 

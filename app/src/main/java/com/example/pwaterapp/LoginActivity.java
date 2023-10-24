@@ -7,14 +7,36 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-    Button btnLogExit;
+    Button btnLogExit, btnLogIn;
+    EditText edtLoginName, edtLoginPass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_acitivity);
         btnLogExit = (Button) findViewById(R.id.buttonLogExit);
+        btnLogIn = (Button) findViewById(R.id.buttonLogin);
+        edtLoginName = (EditText) findViewById(R.id.editTextLoginName);
+        edtLoginPass = (EditText) findViewById(R.id.editTextLoginPass);
+
+        btnLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (edtLoginName.getText().toString().equals("admin") && edtLoginPass.getText().toString().equals("123")) {
+                    Toast.makeText(LoginActivity.this,"Đăng nhập thành công! ",Toast.LENGTH_SHORT).show();
+                    Intent intentM = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intentM);
+                }
+                else {
+                    Toast.makeText(LoginActivity.this,"Đăng nhập thất bại, sai thông tin! ",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         //Exit program
         btnLogExit.setOnClickListener(new View.OnClickListener() {
             @Override

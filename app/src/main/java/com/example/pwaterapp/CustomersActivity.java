@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,8 +30,8 @@ public class CustomersActivity extends AppCompatActivity {
 
     ArrayList<Customer> ArrayListCuss;
     com.example.pwaterapp.database.Database database;
+    // khai báo adapter
     com.example.pwaterapp.adapter.adaptercuss adaptercuss;
-    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,37 +41,38 @@ public class CustomersActivity extends AppCompatActivity {
         toolbarCus = (Toolbar) findViewById(R.id.toolbarCus);
         listviewCus = (ListView) findViewById(R.id.listviewCus);
 
-
-        //event back to MainAc
-
+        // set toolbar to toolbarCus
         setSupportActionBar(toolbarCus);
+        // trở về main
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         database = new Database(this);
 
         ArrayListCuss = new ArrayList<>();
         Cursor cursor = database.getDataCuss();
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String name = cursor.getString(1);
+                String Address = cursor.getString(2);
+                int type = cursor.getInt(3);
+                String brand = cursor.getString(4);
+                String time = cursor.getString(5);
+                byte[] image = cursor.getBlob(6); // link image
 
-        while(cursor.moveToNext()) {
-            int id = cursor.getInt(0);
-            String name = cursor.getString(1);
-            String Address = cursor.getString(2);
-            int type = cursor.getInt(3);
-            String brand = cursor.getString(4);
-            String time = cursor.getString(5);
-            byte[] image = cursor.getBlob(6); // link image
-
-            ArrayListCuss.add(new Customer(id,name,Address,type,brand,time,image));
+                ArrayListCuss.add(new Customer(id, name, Address, type, brand, time, image));
+            } while (cursor.moveToNext());
         }
-
+        // show dữ liệu lên
         adaptercuss = new adaptercuss(CustomersActivity.this, ArrayListCuss);
         listviewCus.setAdapter(adaptercuss);
-        cursor.moveToFirst();
+        cursor.moveToFirst();// đưa trở về lại đầu bảng
         cursor.close();
-// click to to show detail
+    // bấm vào item hiển thị chi tiết
         listviewCus.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // tạo mới dialog và set cho layout detail
                 Dialog dialog = new Dialog(CustomersActivity.this);
                     dialog.setContentView(R.layout.dialogdetail);
                 TextView textViewName = dialog.findViewById(R.id.TextViewNameCuss);
@@ -79,7 +81,7 @@ public class CustomersActivity extends AppCompatActivity {
                 TextView textViewBrand = dialog.findViewById(R.id.TextViewBrandCuss);
                 TextView textViewDate = dialog.findViewById(R.id.TextViewDateCuss);
                 ImageView imageView = dialog.findViewById(R.id.imageViewCus);
-
+                // lấy thôn tin  hiển thị từ List
                 Customer selectedCustomer = ArrayListCuss.get(position);
 
                 textViewName.setText(selectedCustomer.getName());
@@ -87,15 +89,21 @@ public class CustomersActivity extends AppCompatActivity {
                 textViewType.setText(String.valueOf(selectedCustomer.getWater_type()));
                 textViewBrand.setText(selectedCustomer.getWater_brand());
                 textViewDate.setText(selectedCustomer.getTime());
-                //imageView.setImageBitmap(BitmapFactory.decodeByteArray(selectedCustomer.getImage(), 0, selectedCustomer.getImage().length));
+                // hiển thị ảnh
+                if (selectedCustomer.getImage() != null) {
+                    imageView.setImageBitmap(BitmapFactory.decodeByteArray(selectedCustomer.getImage(), 0, selectedCustomer.getImage().length));
+                } else {
+                    // Xử lý khi image là null
+                    imageView.setImageResource(R.drawable.main_logo2);
+                }
 
                 dialog.show();
-                dialog.setCanceledOnTouchOutside(true);
+                dialog.setCanceledOnTouchOutside(true);// click ra ngoài đóng tab
             }
         });
 
     }
-    //
+    //tạo menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -105,18 +113,19 @@ public class CustomersActivity extends AppCompatActivity {
 // add new cuss
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // chọn vào + thì mở trang add và thêm đối tượng mới
         if (item.getItemId() == R.id.menuaddC) {
             Intent intent5 = new Intent(CustomersActivity.this, AddCuss.class);
             startActivity(intent5);
         }
-        else {
+        else {// chọn nút còn lại sẽ back về main
             Intent intentCancel = new Intent(CustomersActivity.this, MainActivity.class);
             startActivity(intentCancel);
         }
         return super.onOptionsItemSelected(item);
     }
 
-
+    // xóa 1 khách hàng trong csdl
     public void deleteC(final int position) {
         Dialog dialogD = new Dialog(this);
         dialogD.setContentView(R.layout.dialogdeletecuss);
@@ -146,7 +155,7 @@ public class CustomersActivity extends AppCompatActivity {
         dialogD.show();
     }
 
-
+    // cập nhập 1 khách hàng
     public void updateC(final int position) {
         Cursor cursor = database.getDataCuss();
 
@@ -160,7 +169,8 @@ public class CustomersActivity extends AppCompatActivity {
                 int type = cursor.getInt(3);
                 String brand = cursor.getString(4);
                 String time = cursor.getString(5);
-                //byte[] image = cursor.getBlob(6); // link image
+                // khai bao anh
+                byte[] image = cursor.getBlob(6);
 
                 //send database to updatecuss
                 intentU.putExtra("idcustomer",id);
@@ -169,13 +179,14 @@ public class CustomersActivity extends AppCompatActivity {
                 intentU.putExtra("type",type);
                 intentU.putExtra("brand",brand);
                 intentU.putExtra("time",time);
-                //intentU.putExtra("image",image);
+                // khai bao anh
+                intentU.putExtra("image",image);
 
                 startActivity(intentU);
             }
         }
     }
-
+    // lấy dữ liệu hiển thị story
     public void historyC(final int position) {
         Cursor cursor = database.getDataCuss();
         while (cursor.moveToNext()){
@@ -187,15 +198,16 @@ public class CustomersActivity extends AppCompatActivity {
                 int type = cursor.getInt(3);
                 String brand = cursor.getString(4);
                 String time = cursor.getString(5);
-                //byte[] image = cursor.getBlob(6); // link image
+                // khai bao anh
+                byte[] image = cursor.getBlob(6); // link image
 
                 //send database to historycuss
                 intentH.putExtra("idcustomer",id);
                 intentH.putExtra("type",type);
                 intentH.putExtra("brand",brand);
                 intentH.putExtra("time",time);
-                //intentU.putExtra("image",image);
-
+                //
+                intentH.putExtra("image",image);
                 startActivity(intentH);
             }
         }

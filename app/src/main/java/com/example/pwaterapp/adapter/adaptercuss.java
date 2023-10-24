@@ -42,7 +42,7 @@ public class adaptercuss extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
+        // đổ từ layout sang view
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.listcuss,null);
 
@@ -60,6 +60,7 @@ public class adaptercuss extends BaseAdapter {
         imageDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // xóa csdl theo id
                 context.deleteC(id);
 
             }
@@ -67,11 +68,13 @@ public class adaptercuss extends BaseAdapter {
         imageUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // cập nhập theo id
                 context.updateC(id);
             }
         });imageCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // xem lịch sử theo id
                 context.historyC(id);
             }
         });

@@ -36,16 +36,13 @@ public class AddCuss extends AppCompatActivity {
 
         btnAddCuss = (Button) findViewById(R.id.ButtonAddCuss);
         btnBackCuss = (Button) findViewById(R.id.ButtonBackCuss);
-
         edtName = (EditText) findViewById(R.id.EditTextNameCuss);
         edtAddress = (EditText) findViewById(R.id.EditTextAddress);
         edtBrand = (EditText) findViewById(R.id.EditTextBrandCuss);
         edtType = (EditText) findViewById(R.id.EditTextTypeCuss);
-
-
-
+        // tạo mới 1 đối tượng khách hàng trong lớp này
         database = new Database(this);
-
+        // sự kiện thêm 1 khách hàng
         btnAddCuss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,25 +51,25 @@ public class AddCuss extends AppCompatActivity {
                 String type = edtType.getText().toString().trim();
                 String brand = edtBrand.getText().toString().trim();
 
-
+                // kiểm tra xem thông tin đã đủ chưa
                 if (name.equals("") || address.equals("") || brand.equals("") || type.equals("")) {
                     Toast.makeText(AddCuss.this, "Not enough information! ", Toast.LENGTH_SHORT).show();
 
                 }
 
                 else {
-                    // insert infor to Create
+                    // tạo mới 1 khách hàng và đưa thông tin vào
                     Customer cus = CreateCus();
-                    //Add in database
+                    //Lưu vào database
                     database.AddCuss(cus);
-                    //add completed, change to WaterActivity
+                    //sau khi lưu thì trả về customerAcitivy
                     Intent intentAC = new Intent(AddCuss.this,  CustomersActivity.class);
                     startActivity(intentAC);
-
                     Toast.makeText(AddCuss.this,"Add Success",Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        //  quay lại nếu ko thêm
         btnBackCuss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,14 +77,12 @@ public class AddCuss extends AppCompatActivity {
             }
         });
     }
-
+    // Hàm tạo mới 1 đối tượng khách hàng
     private Customer CreateCus() {
         String name = edtName.getText().toString().trim();
         String address = edtAddress.getText().toString().trim();
         int type = Integer.parseInt(edtType.getText().toString().trim());
         String brand = edtBrand.getText().toString().trim();
-
-
 
         Customer cus = new Customer(name,address,type,brand,null,null);
         return cus;

@@ -39,15 +39,10 @@ public class AddWater extends AppCompatActivity {
                 //not enough data
                 if (type.equals("") || brand.equals("")) {
                     Toast.makeText(AddWater.this, "Not enough information! ", Toast.LENGTH_SHORT).show();
-
                 }
-
                 else {
-                    // insert infor to Create
                     Water water = CreateWater();
-                    //Add in database
                     database.AddWater(water);
-                    //add completed, change to WaterActivity
                     Intent intentAW = new Intent(AddWater.this,WaterActivity.class);
                     startActivity(intentAW);
 
@@ -55,16 +50,16 @@ public class AddWater extends AppCompatActivity {
                 }
             }
         });
+
         btnBackWater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
     }
 
-
-    //Create new water
     private Water CreateWater() {
 
         int type = Integer.parseInt(edtTypeW.getText().toString().trim());
