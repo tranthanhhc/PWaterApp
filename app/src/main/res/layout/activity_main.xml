@@ -45,7 +45,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="18dp"
-        android:text="Thoát"
+        android:text="Back"
         android:backgroundTint="#00B2EE"
         app:strokeColor="#ECE1E1"
         app:strokeWidth="3dp"/>
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="#00B2EE"
-            android:text="Danh sách khách hàng"
+            android:text="LIST OF CUSTOMERS"
             app:strokeColor="#ECE1E1"
             app:strokeWidth="3dp" />
 
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:backgroundTint="#00B2EE"
-            android:text="Danh sách nước"
+            android:text="LIST OF WATER"
             app:strokeColor="#ECE1E1"
             app:strokeWidth="3dp" />
 

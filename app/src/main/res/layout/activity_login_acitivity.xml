@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="15"
-            android:hint="Tên Đăng Nhập"
+            android:hint="Account Name"
             android:textColorHint="#ffff"
             android:textSize="20dp" />
 
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:ems="15"
-            android:hint="Mật Khẩu"
+            android:hint="Password"
             android:inputType="textPassword"
             android:textColorHint="#ffff"
             android:textSize="20dp" />
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="#00B2EE"
-            android:text="Đăng Nhập"
+            android:text="Login"
             app:strokeColor="#ECE1E1"
             app:strokeWidth="3dp" />
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:backgroundTint="#00B2EE"
-            android:text="Thoát"
+            android:text="Exit"
             app:strokeColor="#ECE1E1"
             app:strokeWidth="3dp" />
 

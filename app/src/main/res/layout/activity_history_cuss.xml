@@ -53,8 +53,8 @@
                       android:shadowDx="5"
                       android:shadowDy="5"
                       android:shadowRadius="3"
-                      android:text="Loại nước "
-                      android:textColor="#CCCCCC"
+                      android:text="Type Water "
+                      android:textColor="#000000"
                       android:textSize="18sp"
                       android:textStyle="bold"></TextView>
                   <TextView
@@ -67,7 +67,7 @@
                       android:shadowDy="5"
                       android:shadowRadius="3"
                       android:text="16"
-                      android:textColor="#CCCCCC"
+                      android:textColor="#000000"
                       android:textSize="18sp"
                       android:textStyle="bold"></TextView>
               </LinearLayout>
@@ -87,8 +87,8 @@
                        android:shadowDx="5"
                        android:shadowDy="5"
                        android:shadowRadius="3"
-                       android:text="Thương hiệu  "
-                       android:textColor="#CCCCCC"
+                       android:text="Brand Water "
+                       android:textColor="#000000"
                        android:textSize="18sp"
                        android:textStyle="bold"></TextView>
                    <TextView
@@ -101,7 +101,7 @@
                        android:shadowRadius="3"
                        android:text="Ahiva"
                        android:id="@+id/TextViewCartBrand"
-                       android:textColor="#CCCCCC"
+                       android:textColor="#000000"
                        android:textSize="18sp"
                        android:textStyle="bold"></TextView>
                </LinearLayout>
@@ -120,8 +120,8 @@
                        android:shadowDx="5"
                        android:shadowDy="5"
                        android:shadowRadius="3"
-                       android:text="Thời gian"
-                       android:textColor="#CCCCCC"
+                       android:text="Date "
+                       android:textColor="#000000"
                        android:textSize="18sp"
                        android:textStyle="bold"></TextView>
                    <TextView
@@ -134,7 +134,7 @@
                        android:shadowDy="5"
                        android:shadowRadius="3"
                        android:text="18/10/2019"
-                       android:textColor="#CCCCCC"
+                       android:textColor="#000000"
                        android:textSize="18sp"
                        android:textStyle="bold"></TextView>
                </LinearLayout>
@@ -153,8 +153,8 @@
                        android:shadowDx="5"
                        android:shadowDy="5"
                        android:shadowRadius="3"
-                       android:text="Hình ảnh"
-                       android:textColor="#CCCCCC"
+                       android:text="Image"
+                       android:textColor="#000000"
                        android:textSize="18sp"
                        android:textStyle="bold"></TextView>
                    <ImageView

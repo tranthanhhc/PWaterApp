@@ -26,7 +26,7 @@
         <TextView
             android:textSize="20sp"
             android:textColor="#FFFFFF"
-            android:text="Tên : "
+            android:text="Name : "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
 
@@ -49,7 +49,7 @@
         <TextView
             android:textSize="20sp"
             android:textColor="#FFFFFF"
-            android:text="Địa chỉ : "
+            android:text="Address: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
 
@@ -72,7 +72,7 @@
         <TextView
             android:textSize="20sp"
             android:textColor="#FFFFFF"
-            android:text="Loại nước : "
+            android:text="Type Water : "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
 
@@ -95,7 +95,7 @@
         <TextView
             android:textSize="20sp"
             android:textColor="#FFFFFF"
-            android:text="Thương hiệu : "
+            android:text="Brand Water : "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
 
@@ -118,7 +118,7 @@
         <TextView
             android:textSize="20sp"
             android:textColor="#FFFFFF"
-            android:text="Ngày giao : "
+            android:text="Date : "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
 
@@ -141,7 +141,7 @@
         <TextView
             android:textSize="20sp"
             android:textColor="#FFFFFF"
-            android:text="Hình ảnh : "
+            android:text="Image : "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
 
